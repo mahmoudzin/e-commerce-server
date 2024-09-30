@@ -85,3 +85,45 @@ app.use(globalError);
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(port));
 db();
+
+//Frontend Next-Steps:
+//html, css, bootstrap, tailwindcss, javascript, react
+//typescript => javaScript + types // 2 week
+//https://maharatech.gov.eg/course/view.php?id=976
+//SASS => CSS
+
+//react + typescript + sass // 1 week
+
+//React Ecosystem:
+// Redux => State managment // A
+//https://www.youtube.com/@kimzcodes/playlists
+//https://www.udemy.com/course/the-ultimate-react-course/?couponCode=OF83024E
+// ReactQuery => remote state // plus
+// MUI => Component, Custmoize
+// NextJS //basics js // ts // sass
+//---------Avanced ---------
+//React Design pattern
+//https://www.patterns.dev/
+//Frontend System Design
+//https://www.youtube.com/@d.zhiganov/playlists
+//https://www.udemy.com/course/advanced-react/?couponCode=OF83024E
+
+// --------------------
+
+// Backend
+// NodeJS => C++
+//https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/?couponCode=OF83024E
+//Express, MongoDB
+// SQL => MYSql with NodeJS
+//https://maharatech.gov.eg/course/view.php?id=740
+//-----------
+
+// TypeScript with NodeJS
+// Nest => https://docs.nestjs.com/
+
+//OOP Design pattern
+// ProtoType DP
+// Arch patterns MVC
+//----- Advanced -----
+// System Design
+// ASP.NET, PHP larvel

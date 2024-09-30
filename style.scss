@@ -1,0 +1,7 @@
+.parent {
+  // & this
+  & > .child {
+  }
+  &:hover {
+  }
+}
