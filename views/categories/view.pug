@@ -1,0 +1,56 @@
+extends ../layout.pug
+
+block content
+  //- Page Container
+  div(class='w-full max-w-3xl bg-white shadow-md rounded-lg p-6')
+    h1(class='text-2xl font-bold mb-4') View Category
+
+    //- Category Title
+    div(class='mb-4')
+      label(class='block text-gray-700 font-bold mb-2') Title
+      p(class='w-full p-2 border border-gray-300 rounded bg-gray-100')= category.title
+
+    //- Category Image
+    div(class='mb-4')
+      label(class='block text-gray-700 font-bold mb-2') Category Image
+      img(src=category.image alt=category.title class='w-full h-64 object-cover rounded-lg')
+
+    //- Description
+    div(class='mb-4')
+      label(class='block text-gray-700 font-bold mb-2') Description
+      p(class='w-full p-2 border border-gray-300 rounded bg-gray-100')= category.desc
+
+    //- Products Table
+    if products.length > 0
+      h2(class='text-xl font-bold mt-6 mb-4') Products in this Category
+      table(class='w-full bg-white shadow-md rounded-lg overflow-hidden')
+        thead(class='bg-gray-800 text-white')
+          tr
+            th(class='p-4 text-left') Main Image
+            th(class='p-4 text-left') Title
+            th(class='p-4 text-left') Description
+            th(class='p-4 text-left') Stock
+            th(class='p-4 text-left') Expired
+            th(class='p-4 text-left') Actions
+
+        tbody
+          each product, index in products
+            tr(class=(index % 2 === 0 ? 'bg-gray-100' : 'bg-white'))
+              td(class='p-4')
+                img(src=product.main_image alt=product.title class='w-16 h-16 object-cover rounded-lg')
+              td(class='p-4')= product.title
+              td(class='p-4')= product.description
+              td(class='p-4')= product.stock
+              td(class='p-4')= product.expired ? 'Yes' : 'No'
+              td(class='p-4')
+                a(href=`/products/${product.id}/view` class='text-green-500 hover:text-green-600 mr-2') View
+                a(href=`/products/${product.id}/update` class='text-yellow-500 hover:text-yellow-600 mr-2') Update
+                a(href=`/products/${product.id}/delete` class='text-red-500 hover:text-red-600') Delete
+    else
+      div(class='w-full bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative mt-4')
+        strong(class='font-bold') Notice:
+        span(class='block sm:inline') No products found for this category.
+
+    //- Back Button
+    div(class='flex justify-end mt-4')
+      a(href='/categories' class='bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600') Back to Categories

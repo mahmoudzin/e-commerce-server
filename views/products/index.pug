@@ -1,0 +1,43 @@
+extends ../layout.pug
+block content
+    //- Search Bar
+    div(class='w-full max-w-4xl mb-4')
+      input(type='text', placeholder='Search products...' class='w-full p-2 border border-gray-300 rounded')
+
+    //- Create Product Button
+    div(class='w-full max-w-4xl flex justify-end mb-4')
+      a(href='/products/create' class='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600')
+        | Create New Product
+
+    //- Check if there are products
+    if products.length > 0
+      //- Products Table
+      table(class='w-full max-w-4xl bg-white shadow-md rounded-lg overflow-hidden')
+        thead(class='bg-gray-800 text-white')
+          tr
+            th(class='p-4 text-left') Main Image
+            th(class='p-4 text-left') Title
+            th(class='p-4 text-left') Category            
+            th(class='p-4 text-left') Description
+            th(class='p-4 text-left') Stock
+            th(class='p-4 text-left') Expired
+            th(class='p-4 text-left') Actions
+
+        tbody
+          each product, index in products
+            tr(class=(index % 2 === 0 ? 'bg-gray-100' : 'bg-white'))
+              td(class='p-4')
+                img(src=product.main_image, alt='Main Image', class='w-10 h-10 object-cover')
+              td(class='p-4')= product.title
+              td(class='p-4')= product.cat_id.title
+              td(class='p-4')= product.description
+              td(class='p-4')= product.stock
+              td(class='p-4')= product.expired ? 'Yes' : 'No'
+              td(class='p-4')
+                a(href=`/products/${product.id}/update` class='text-yellow-500 hover:text-yellow-600 mr-2') Update
+                a(href=`/products/${product.id}/delete` class='text-red-500 hover:text-red-600') Delete
+    else
+      //- No Products Warning
+      div(class='w-full max-w-4xl bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative')
+        strong(class='font-bold') Warning!
+        span(class='block sm:inline') No products found. Please add some products.

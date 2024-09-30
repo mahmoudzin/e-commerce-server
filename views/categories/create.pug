@@ -1,0 +1,25 @@
+extends ../layout.pug
+block content
+    //- Form Container
+    div(class='w-full max-w-3xl bg-white shadow-md rounded-lg p-6')
+      h1(class='text-2xl font-bold mb-4') Create New Category
+
+      form( method='post' enctype='multipart/form-data')
+        //- Category Title
+        div(class='mb-4')
+          label(for='title' class='block text-gray-700 font-bold mb-2') Title
+          input(type='text', id='title', name='title', required, class='w-full p-2 border border-gray-300 rounded')
+
+        //- Main Image
+        div(class='mb-4')
+          label(for='image' class='block text-gray-700 font-bold mb-2') Category Image
+          input(type='file', id='image', name='image', accept='image/*', required, class='w-full p-2 border border-gray-300 rounded')
+
+        //- Description
+        div(class='mb-4')
+          label(for='description' class='block text-gray-700 font-bold mb-2') Description
+          textarea(id='description', name='description', rows='4', required, class='w-full p-2 border border-gray-300 rounded') 
+
+        //- Submit Button
+        div(class='flex justify-end')
+          button(type='submit', class='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600') Submit

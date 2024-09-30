@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    title My App
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href=`/css/style.css`)
+  body
+    div(class='min-h-screen flex flex-col')
+      //- Navbar
+      nav(class='bg-gray-800 text-white p-4 flex justify-between items-center')
+        div(class='text-lg font-bold') My App
+        //- ul(class='flex space-x-4')
+        //-   li
+        //-     a(href='#' class='hover:underline') Home
+        //-   li
+        //-     a(href='#' class='hover:underline') About
+        //-   li
+        //-     a(href='#' class='hover:underline') Contact
+
+      //- Main Content with Sidebar
+      div(class='flex flex-1')
+        //- Sidebar
+        aside(class='bg-gray-700 text-white w-64 p-4')
+          ul(class='space-y-2')
+            li
+              a(href='/' class='block py-2 px-4 hover:bg-gray-600 rounded') Dashboard
+            li
+              a(href='/products' class='block py-2 px-4 hover:bg-gray-600 rounded') Products
+            li
+              a(href='/categories' class='block py-2 px-4 hover:bg-gray-600 rounded') Categories
+
+        //- Main Content Area
+        main(class='flex-1 p-6 bg-gray-100')
+          block content
+
+      //- Footer
+      footer(class='bg-gray-800 text-white p-4 text-center')
+        p &copy; 2024 My App

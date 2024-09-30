@@ -1,0 +1,48 @@
+extends ../layout.pug
+block content
+    //- Form Container
+    div(class='w-full max-w-3xl bg-white shadow-md rounded-lg p-6')
+      h1(class='text-2xl font-bold mb-4') Create New Product
+
+      form(method='post' enctype='multipart/form-data')
+        div(class='mb-4')
+          <label for="category" class="block mb-2 text-sm font-medium text-gray-900 ">Category</label>
+          <select id="category" name="cat_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            each category, index in categories
+              option(value=category.id) #{category.title}
+          </select>
+        //- Product Title
+        div(class='mb-4')
+          label(for='title' class='block text-gray-700 font-bold mb-2') Title
+          input(type='text', id='title', name='title', required, class='w-full p-2 border border-gray-300 rounded')
+
+        //- Main Image
+        div(class='mb-4')
+          label(for='main_image' class='block text-gray-700 font-bold mb-2') Main Image
+          input(type='file', id='main_image', name='main_image', accept='image/*', required, class='w-full p-2 border border-gray-300 rounded')
+
+        //- Additional Images
+        div(class='mb-4')
+          label(for='images' class='block text-gray-700 font-bold mb-2') Additional Images
+          input(type='file', id='images', name='images', multiple accept='image/*', class='w-full p-2 border border-gray-300 rounded')
+
+        //- Description
+        div(class='mb-4')
+          label(for='description' class='block text-gray-700 font-bold mb-2') Description
+          textarea(id='description', name='description', rows='4', required, class='w-full p-2 border border-gray-300 rounded') 
+
+        //- Stock
+        div(class='mb-4')
+          label(for='stock' class='block text-gray-700 font-bold mb-2') Stock
+          input(type='number', id='stock', name='stock', required min='0', class='w-full p-2 border border-gray-300 rounded')
+
+        //- Expired
+        div(class='mb-4')
+          label(for='expired' class='block text-gray-700 font-bold mb-2') Expired
+          select(id='expired', name='expired', class='w-full p-2 border border-gray-300 rounded')
+            option(value='true') Yes
+            option(value='false', selected) No
+
+        //- Submit Button
+        div(class='flex justify-end')
+          button(type='submit', class='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600') Submit
